@@ -1,0 +1,2 @@
+# quarto4rubydata
+「RubyDataエコシステムへのQuartoの導入とその利用の推進のためのコミュニティ活動」用リポジトリ
