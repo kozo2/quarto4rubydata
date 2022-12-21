@@ -15,6 +15,7 @@ USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
     pandoc \
     pandoc-citeproc \
+    lmodern \
     curl \
     gdebi-core \
     && rm -rf /var/lib/apt/lists/*
