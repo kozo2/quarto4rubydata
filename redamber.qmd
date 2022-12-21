@@ -1,0 +1,73 @@
+---
+title: redamber
+format:
+  html:
+    code-fold: true
+jupyter: ruby
+---
+
+```{ruby}
+1+2
+```
+
+```{ruby}
+require 'red_amber'
+```
+
+```{ruby}
+include RedAmber
+```
+
+```{ruby}
+{RedAmber: VERSION, Arrow: Arrow::VERSION}
+```
+
+```{ruby}
+DataFrame.new(x: [1, 2, 3], y: %w[A B C])
+```
+
+```{ruby}
+DataFrame.new({ x: :uint8, y: :string }, [[1, 'A'], [2, 'B'], [3, 'C']])
+```
+
+```{ruby}
+table = Arrow::Table.new(x: [1, 2, 3], y: %w[A B C])
+DataFrame.new(table)
+```
+
+```{ruby}
+require 'datasets-arrow'
+dataset = Datasets::Penguins.new
+penguins = DataFrame.new(dataset)
+```
+
+```{ruby}
+dataset = Datasets::Rdatasets.new('datasets', 'mtcars')
+mtcars = DataFrame.new(dataset)
+```
+
+```{ruby}
+require 'arrow-numo-narray'
+
+DataFrame.new(numo: Numo::DFloat.new(3).rand)
+```
+
+```{ruby}
+uri = URI("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv")
+DataFrame.load(uri)
+```
+
+```{ruby}
+df = DataFrame.new(
+  x: [1, 2, 3, 4, 5],
+  y: [1, 2, 3, 0/0.0, nil],
+  s: %w[A B C D] << nil,
+  b: [true, false, true, false, nil]
+)
+```
+
+```{ruby}
+df.table
+```
+
+
