@@ -19,7 +19,7 @@
 
 ```
 docker build -t try-rubyquarto .
-docker run -it --rm -p 8888:8888 try-rubyquarto jupyter notebook --NotebookApp.default_url=/lab/ --ip=0.0.0.0 --port=8888
+docker run -it --rm -p 8888:8888 try-rubyquarto jupyter notebook --NotebookApp.default_url=/lab/ --ip=0.0.0.0 --port=8888 --allow-root
 ```
 
 ウェブブラウザで `localhost:8888` を開いてください。
