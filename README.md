@@ -12,3 +12,14 @@
 それが立ち上がり終わるまで少し時間を要しますが気長にお待ちください。
 
 もし問題無く JupyterLab が立ち上がったら、左のサイドバーに見える ipynb をダブルクリックし、その内容を実行・確認してみてください。
+
+## 上記の試用を Docker を用いてご自身のローカル環境で行うには
+
+このリポジトリをクローンし、下記のコマンドを実行してください。
+
+```
+docker build -t try-rubyquarto .
+docker run -it --rm -p 8888:8888 try-rubyquarto jupyter notebook --NotebookApp.default_url=/lab/ --ip=0.0.0.0 --port=8888
+```
+
+ウェブブラウザで `localhost:8888` を開いてください。
