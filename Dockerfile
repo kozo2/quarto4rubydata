@@ -13,6 +13,8 @@ Add *.ipynb ./
 
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    texlive-lang-japanese \
+    texlive-xetex \
     pandoc \
     pandoc-citeproc \
     lmodern \
