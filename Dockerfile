@@ -7,6 +7,7 @@ RUN gem update \
       red-datasets\
       red-datasets-arrow\
       red-arrow-numo-narray\
+      matplotlib\
       rover-df
       
 Add *.ipynb ./
