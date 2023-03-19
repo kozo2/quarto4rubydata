@@ -1,6 +1,7 @@
 FROM rubydata/minimal-notebook:latest
 ENV TAG=latest
 
+RUN gem install terminal-table
 RUN gem update \
       red_arrow\
       red_amber\
