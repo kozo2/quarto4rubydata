@@ -18,8 +18,8 @@
 このリポジトリをクローンし、下記のコマンドを実行してください。
 
 ```
-docker build -t try-rubyquarto .
-docker run -it --rm -p 8888:8888 try-rubyquarto jupyter notebook --NotebookApp.default_url=/lab/ --ip=0.0.0.0 --port=8888 --allow-root --NotebookApp.token=''
+docker build -t quarto4rubydata .
+docker run -it --rm -p 8888:8888 quarto4rubydata jupyter notebook --NotebookApp.default_url=/lab/ --ip=0.0.0.0 --port=8888 --allow-root --NotebookApp.token=''
 ```
 
 ウェブブラウザで `localhost:8888` を開いてください。
