@@ -1,3 +1,17 @@
 project:
   type: website
   output-dir: docs
+
+website:
+  title: "quarto4rubydata"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+        
+format:
+  html
+    theme: cosmo
+    css: style.css
+    toc: true
+    
