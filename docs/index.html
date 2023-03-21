@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>quarto4rubydata - RubyDataをQuartoと組み合わせて用いる方法と意義</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">quarto4rubydata</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ipynb2pdforword.html">
+ <span class="menu-text">ipynb から Word や PDF のファイルを生成する</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./crossref4figtbl.html">
+ <span class="menu-text">コード実行により得られる図表に対するクロスリファレンス</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ipynb2website.html">
+ <span class="menu-text">ipynb から Word や PDF のファイルを生成する</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#このウェブサイトは何を説くものか" id="toc-このウェブサイトは何を説くものか" class="nav-link active" data-scroll-target="#このウェブサイトは何を説くものか">このウェブサイトは何を説くものか？</a></li>
+  <li><a href="#rubydata-エコシステムで-quarto-を用いる方法" id="toc-rubydata-エコシステムで-quarto-を用いる方法" class="nav-link" data-scroll-target="#rubydata-エコシステムで-quarto-を用いる方法">RubyData エコシステムで Quarto を用いる方法</a>
+  <ul class="collapse">
+  <li><a href="#quarto-を使うには" id="toc-quarto-を使うには" class="nav-link" data-scroll-target="#quarto-を使うには">Quarto を使うには</a></li>
+  </ul></li>
+  <li><a href="#quarto-を用いるとどのような利点があるのか" id="toc-quarto-を用いるとどのような利点があるのか" class="nav-link" data-scroll-target="#quarto-を用いるとどのような利点があるのか">Quarto を用いるとどのような利点があるのか？</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">RubyDataをQuartoと組み合わせて用いる方法と意義</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="このウェブサイトは何を説くものか" class="level1">
+<h1>このウェブサイトは何を説くものか？</h1>
+<p>このウェブサイトでは <a href="https://github.com/RubyData">RubyData</a> エコシステムで <a href="https://quarto.org/">Quarto</a> を「用いる方法」と、「用いるとどのような利点があるのか？」を説明します。</p>
+<p>以下では Windows と PowerShell の最新バージョンを用いることを想定しています。</p>
+</section>
+<section id="rubydata-エコシステムで-quarto-を用いる方法" class="level1">
+<h1>RubyData エコシステムで Quarto を用いる方法</h1>
+<p>RubyData エコシステムを自分でセットアップすることは難しいです。<br>
+そのためここでは <a href="https://www.docker.com/">Docker</a> を用いてセットアップ済の環境を利用する方法を紹介します。<br>
+その環境には Quarto も追加済であり、容易に「RubyData エコシステム + Quarto の環境」を利用することができます。</p>
+<p>Docker のセットアップは、<a href="https://docs.docker.com/desktop/install/windows-install/">こちらのリンク</a> を参考に行ってください。<br>
+Docker が使えるようになったら、下記のコマンドを PowerShell 中で実行してください。</p>
+<pre><code>curl -L -O https://github.com/kozo2/quarto4rubydata/archive/refs/heads/main.zip
+Expand-Archive main.zip
+cd .\main\quarto4rubydata-main\
+docker build -t quarto4rubydata .
+docker run -it --rm -p 8888:8888 quarto4rubydata jupyter notebook --NotebookApp.default_url=/lab/ --ip=0.0.0.0 --port=8888 --allow-root --NotebookApp.token=''</code></pre>
+<p>上記のコマンドが実行できたら、ウェブブラウザで http://localhost:8888 を開いてください。 すると下記画像のような JupyterLab 画面が見えるはずです。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lanucher_irubynotebook.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">iruby notebook を立ち上げる</figcaption><p></p>
+</figure>
+</div>
+<p>あとは上記画像の中の赤丸の Ruby アイコンをクリックすると RubyData の gem がセットアップ済の iruby notebook が使えます。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="irubynotebook.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">iruby notebook の見た目</figcaption><p></p>
+</figure>
+</div>
+<section id="quarto-を使うには" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-を使うには">Quarto を使うには</h2>
+<p>Quarto は、この JupyterLab 内のターミナルから <code>quarto</code> コマンドを実行することで利用できます。</p>
+<p>JupyterLab でターミナルを使うには下記画像の赤丸をクリックします。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lanucher_terminal.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">ターミナルを立ち上げる</figcaption><p></p>
+</figure>
+</div>
+<p>あとはターミナル内で <code>quarto --help</code> コマンドを実行し、quarto コマンドが利用できることを確認しましょう。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="quarto_command_in_terminal.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">image.png</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="quarto-を用いるとどのような利点があるのか" class="level1">
+<h1>Quarto を用いるとどのような利点があるのか？</h1>
+<p>Quarto を用いると Jupyter でも <a href="https://rmarkdown.rstudio.com/">R Markdown</a> のように「Markdown の拡張記法(qmd)の利用」と「(Ruby)コードの実行」が「一処で行える」ようになります。<br>
+またその ipynb ファイルを quarto コマンドの入力として与えると、Word、PDF、HTML、PowerPoint その他の形式で出力することができます。</p>
+<p>qmd を用いると、科学技術出版に欠かせない「図表のクロスリファレンス」の自動生成を (Ruby) コードと紐付けて行えるようになります。</p>
+<p>上記の具体例を知るには下記のページへ進んでください。 - 「ipynb から Word や PDF を生成する」 - 「ipynb から 図表のクロスリファレンスを備えたPDFを生成する」 - 「ipynb から ウェブサイトをビルドし、GitHub Pagesとして公開する」</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
