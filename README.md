@@ -1,6 +1,13 @@
 # quarto4rubydata
 「RubyDataエコシステムへのQuartoの導入とその利用の推進のためのコミュニティ活動」用リポジトリ
 
+## 紹介 YouTube
+
+https://www.youtube.com/playlist?list=PLuFJcS7UhfnGrFUnCvK33jmhTLPUDfKsg
+
+![image](https://user-images.githubusercontent.com/12192/226752499-2ea36341-6028-4e0b-b3d2-1e7a28519615.png)
+
+
 ## (セットアップ不要で) このプロジェクトを試用するには
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kozo2/quarto4rubydata/HEAD)
