@@ -8,10 +8,12 @@ website:
     left:
       - href: index.qmd
         text: Home
-        
+      - ipynb2pdforword.qmd
+      - crossref4figtbl.qmd
+      - ipynb2website.qmd
+
 format:
-  html
+  html:
     theme: cosmo
     css: style.css
     toc: true
-    
