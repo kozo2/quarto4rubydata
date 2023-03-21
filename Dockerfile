@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pandoc-citeproc \
     lmodern \
     curl \
+    zip \
     gdebi-core \
     && rm -rf /var/lib/apt/lists/*
 RUN curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb
