@@ -12,6 +12,8 @@ RUN gem update \
       rover-df
       
 Add *.ipynb ./
+Add *.png ./
+Add *.yml ./
 
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
