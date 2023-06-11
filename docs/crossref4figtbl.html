@@ -147,9 +147,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#キャプションのタイトルを英語から日本語にカスタマイズしたい場合" id="toc-キャプションのタイトルを英語から日本語にカスタマイズしたい場合" class="nav-link active" data-scroll-target="#キャプションのタイトルを英語から日本語にカスタマイズしたい場合">キャプションのタイトルを英語から日本語にカスタマイズしたい場合</a></li>
+  <li><a href="#コード実行により得られる図表に対するクロスリファレンス" id="toc-コード実行により得られる図表に対するクロスリファレンス" class="nav-link active" data-scroll-target="#コード実行により得られる図表に対するクロスリファレンス">コード実行により得られる図表に対するクロスリファレンス</a>
+  <ul class="collapse">
+  <li><a href="#キャプションのタイトルを英語から日本語にカスタマイズしたい場合" id="toc-キャプションのタイトルを英語から日本語にカスタマイズしたい場合" class="nav-link" data-scroll-target="#キャプションのタイトルを英語から日本語にカスタマイズしたい場合">キャプションのタイトルを英語から日本語にカスタマイズしたい場合</a></li>
   <li><a href="#図と同様表に対してもクロスリファレンスを得る" id="toc-図と同様表に対してもクロスリファレンスを得る" class="nav-link" data-scroll-target="#図と同様表に対してもクロスリファレンスを得る">図と同様、表に対してもクロスリファレンスを得る</a></li>
   <li><a href="#red_amber-gem-を用いた表の作成するコードセルの実例" id="toc-red_amber-gem-を用いた表の作成するコードセルの実例" class="nav-link" data-scroll-target="#red_amber-gem-を用いた表の作成するコードセルの実例">red_amber gem を用いた表の作成するコードセルの実例</a></li>
+  </ul></li>
   <li><a href="#まとめ" id="toc-まとめ" class="nav-link" data-scroll-target="#まとめ">まとめ</a></li>
   </ul>
 </nav>
@@ -174,6 +177,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<section id="コード実行により得られる図表に対するクロスリファレンス" class="level1">
+<h1>コード実行により得られる図表に対するクロスリファレンス</h1>
 <p>このページでは matplotlib.rb で生成される図に対するクロスリファレンスが、 Quarto を用いることで自動的に得られることを示します。<br>
 まず matplotlib.rb の画像出力を iruby notebook でインタラクティブに確認するための、下記コードセルを実行します。</p>
 <div class="cell" data-execution_count="1">
@@ -184,15 +189,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>次に、「図」用クロスリファレンスのためのコードセルの記述方法を示します。 何はともあれ下記のセルを実行しましょう。</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'matplotlib/pyplot'</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt <span class="kw">=</span> <span class="dt">Matplotlib</span><span class="kw">::</span><span class="dt">Pyplot</span></span>
+<p>ウェブサイトでは Jupyter のコードセル内の Quarto 用のコメントが表示されなかったため、 Markdown のコードブロックと Jupyter のコードセルを併記します。 ご注意ください。</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-plot</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "matplot.rbを用いたプロット"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>xs <span class="kw">=</span> <span class="kw">[*</span><span class="dv">1</span><span class="kw">..</span><span class="dv">100</span><span class="kw">]</span><span class="at">.map</span> <span class="kw">{|</span>x<span class="kw">|</span> (x <span class="kw">-</span> <span class="dv">50</span>) <span class="kw">*</span> <span class="dt">Math</span><span class="kw">::</span><span class="cn">PI</span> <span class="kw">/</span> <span class="fl">100.0</span> <span class="kw">}</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>ys <span class="kw">=</span> xs<span class="at">.map</span> <span class="kw">{|</span>x<span class="kw">|</span> <span class="dt">Math</span><span class="at">.sin</span>(x) <span class="kw">}</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'matplotlib/pyplot'</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt <span class="kw">=</span> <span class="dt">Matplotlib</span><span class="kw">::</span><span class="dt">Pyplot</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt<span class="at">.plot</span>(xs, ys)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt<span class="at">.show</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>xs <span class="kw">=</span> <span class="kw">[*</span><span class="dv">1</span><span class="kw">..</span><span class="dv">100</span><span class="kw">]</span><span class="at">.map</span> <span class="kw">{|</span>x<span class="kw">|</span> (x <span class="kw">-</span> <span class="dv">50</span>) <span class="kw">*</span> <span class="dt">Math</span><span class="kw">::</span><span class="cn">PI</span> <span class="kw">/</span> <span class="fl">100.0</span> <span class="kw">}</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>ys <span class="kw">=</span> xs<span class="at">.map</span> <span class="kw">{|</span>x<span class="kw">|</span> <span class="dt">Math</span><span class="at">.sin</span>(x) <span class="kw">}</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>plt<span class="at">.plot</span>(xs, ys)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt<span class="at">.show</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'matplotlib/pyplot'</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt <span class="kw">=</span> <span class="dt">Matplotlib</span><span class="kw">::</span><span class="dt">Pyplot</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>xs <span class="kw">=</span> <span class="kw">[*</span><span class="dv">1</span><span class="kw">..</span><span class="dv">100</span><span class="kw">]</span><span class="at">.map</span> <span class="kw">{|</span>x<span class="kw">|</span> (x <span class="kw">-</span> <span class="dv">50</span>) <span class="kw">*</span> <span class="dt">Math</span><span class="kw">::</span><span class="cn">PI</span> <span class="kw">/</span> <span class="fl">100.0</span> <span class="kw">}</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ys <span class="kw">=</span> xs<span class="at">.map</span> <span class="kw">{|</span>x<span class="kw">|</span> <span class="dt">Math</span><span class="at">.sin</span>(x) <span class="kw">}</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>plt<span class="at">.plot</span>(xs, ys)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plt<span class="at">.show</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-plot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -251,7 +268,7 @@ jupyter: ruby
 それは「Markdown のテーブル記法」を mime type を markdown として出力することによって実現できます。</p>
 <p>まずはとてもシンプルな例を見てみましょう。 下記のコードセルがそれになります。</p>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">IRuby</span><span class="at">.convert</span>(<span class="st">"| TH1 | TH2 |\n| ---- | ---- |\n| TD | TD |"</span>, <span class="wa">mime: </span><span class="st">"text/markdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">IRuby</span><span class="at">.convert</span>(<span class="st">"| TH1 | TH2 |\n| ---- | ---- |\n| TD | TD |"</span>, <span class="wa">mime: </span><span class="st">"text/markdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div id="tbl-planets" class="anchored">
 <table class="table table-sm table-striped small">
@@ -280,19 +297,19 @@ jupyter: ruby
 <p><a href="@tbl-planets">red_amber</a> は Ruby における pandas と言える gem です。</p>
 <p>下記では red_amber を用いて、より実践的な 表作成用 Ruby コードセルを示します。</p>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'terminal-table'</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'red_amber'</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">include</span> <span class="dt">RedAmber</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>uri <span class="kw">=</span> <span class="cn">URI</span>(<span class="vs">'https://vincentarelbundock.github.io/Rdatasets/csv/dplyr/starwars.csv'</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>starwars <span class="kw">=</span> <span class="dt">DataFrame</span><span class="at">.load</span>(uri)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>table <span class="kw">=</span> <span class="dt">Terminal</span><span class="kw">::</span><span class="dt">Table</span><span class="at">.new</span> <span class="cf">do</span> <span class="kw">|</span>t<span class="kw">|</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  t<span class="at">.headings</span> <span class="kw">=</span> starwars<span class="at">.keys.map</span> <span class="kw">{</span> <span class="kw">|</span>x<span class="kw">|</span> x<span class="at">.to_s</span> <span class="kw">}</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  t<span class="at">.rows</span> <span class="kw">=</span> starwars<span class="at">.head.to_a</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  t<span class="at">.style</span> <span class="kw">=</span> <span class="kw">{</span> <span class="wa">:border_top</span> <span class="kw">=&gt;</span> <span class="dv">false</span>, <span class="wa">:border_bottom</span> <span class="kw">=&gt;</span> <span class="dv">false</span> <span class="kw">}</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>table<span class="at">.style</span> <span class="kw">=</span> <span class="kw">{</span> <span class="wa">:border</span> <span class="kw">=&gt;</span> <span class="wa">:markdown</span><span class="kw">}</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="dt">IRuby</span><span class="at">.convert</span>(table<span class="at">.render</span>, <span class="wa">mime: </span><span class="st">"text/markdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'terminal-table'</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'red_amber'</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">include</span> <span class="dt">RedAmber</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>uri <span class="kw">=</span> <span class="cn">URI</span>(<span class="vs">'https://vincentarelbundock.github.io/Rdatasets/csv/dplyr/starwars.csv'</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>starwars <span class="kw">=</span> <span class="dt">DataFrame</span><span class="at">.load</span>(uri)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>table <span class="kw">=</span> <span class="dt">Terminal</span><span class="kw">::</span><span class="dt">Table</span><span class="at">.new</span> <span class="cf">do</span> <span class="kw">|</span>t<span class="kw">|</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  t<span class="at">.headings</span> <span class="kw">=</span> starwars<span class="at">.keys.map</span> <span class="kw">{</span> <span class="kw">|</span>x<span class="kw">|</span> x<span class="at">.to_s</span> <span class="kw">}</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  t<span class="at">.rows</span> <span class="kw">=</span> starwars<span class="at">.head.to_a</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  t<span class="at">.style</span> <span class="kw">=</span> <span class="kw">{</span> <span class="wa">:border_top</span> <span class="kw">=&gt;</span> <span class="dv">false</span>, <span class="wa">:border_bottom</span> <span class="kw">=&gt;</span> <span class="dv">false</span> <span class="kw">}</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>table<span class="at">.style</span> <span class="kw">=</span> <span class="kw">{</span> <span class="wa">:border</span> <span class="kw">=&gt;</span> <span class="wa">:markdown</span><span class="kw">}</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="dt">IRuby</span><span class="at">.convert</span>(table<span class="at">.render</span>, <span class="wa">mime: </span><span class="st">"text/markdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div id="tbl-starwars" class="anchored">
 <table class="table table-sm table-striped small">
@@ -406,6 +423,7 @@ jupyter: ruby
 <p>では <code>[表 @tbl-starwars]</code> によってクロスリファレンスを得てみましょう。</p>
 <p>スターウォーズの研究は <a href="#tbl-starwars">表&nbsp;2</a> を参照。</p>
 <p>いかがでしょうか？ この ipynb を <code>quarto render</code> した結果得られる PDF 等では <code>[表 @tbl-starwars]</code> がクロスリファレンスに置き換えられているはずです。</p>
+</section>
 </section>
 <section id="まとめ" class="level1">
 <h1>まとめ</h1>
