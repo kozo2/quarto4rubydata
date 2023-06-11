@@ -19,7 +19,7 @@ Matplotlib::IRuby.activate
 
 ```{ruby}
 #| label: fig-plot
-#| fig-cap: matplot.rbを用いたプロット
+#| fig-cap: matplotlib.rbを用いたプロット
 
 require 'matplotlib/pyplot'
 plt = Matplotlib::Pyplot
@@ -35,7 +35,7 @@ sinカーブを描く図がノートブックの出力セルに得られたは�
 そして先のコードセルの冒頭のコメント2行
 ```
 #| label: fig-plot
-#| fig-cap: "matplot.rbを用いたプロット"
+#| fig-cap: "matplotlib.rbを用いたプロット"
 ```
 は、この図に対してクロスリファレンスを作るための記法です。
 

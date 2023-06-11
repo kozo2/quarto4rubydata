@@ -191,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>次に、「図」用クロスリファレンスのためのコードセルの記述方法を示します。 何はともあれ下記のセルを実行しましょう。</p>
 <p>ウェブサイトでは Jupyter のコードセル内の Quarto 用のコメントが表示されなかったため、 Markdown のコードブロックと Jupyter のコードセルを併記します。 ご注意ください。</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ruby code-with-copy"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-plot</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "matplot.rbを用いたプロット"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "matplotlib.rbを用いたプロット"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> <span class="vs">'matplotlib/pyplot'</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt <span class="kw">=</span> <span class="dt">Matplotlib</span><span class="kw">::</span><span class="dt">Pyplot</span></span>
@@ -214,14 +214,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-plot" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="crossref4figtbl_files/figure-html/fig-plot-output-1.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">図&nbsp;1: matplot.rbを用いたプロット</figcaption>
+<figcaption class="figure-caption">図&nbsp;1: matplotlib.rbを用いたプロット</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>sinカーブを描く図がノートブックの出力セルに得られたはずです。 そして先のコードセルの冒頭のコメント2行</p>
 <pre><code>#| label: fig-plot
-#| fig-cap: "matplot.rbを用いたプロット"</code></pre>
+#| fig-cap: "matplotlib.rbを用いたプロット"</code></pre>
 <p>は、この図に対してクロスリファレンスを作るための記法です。</p>
 <p><code>#| label: fig-XXX</code> のようなコメントを図を出力するコードセルに書くと、 その図に対するラベル <code>fig-XXX</code> が設定されます。XXXは任意の文字列です。</p>
 <p>そして、<code>#| fig-cap: "YYY"</code> のようなコメントを図を出力するコードセルに書くと、 その図に対するキャプションが (その ipynb を Quarto に与えた出力結果では) 得られます。</p>
