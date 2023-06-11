@@ -67,41 +67,41 @@
     "href": "ipynb2pdforword.html",
     "title": "ipynb から Word や PDF のファイルを生成する",
     "section": "",
-    "text": "このページでは iruby notebook の ipynb ファイルから Word や PDF のファイルを (Quarto を用いることで) 生成する方法を説明します。\nこの変換は論文作成やレポート提出などに役立ちます。"
+    "text": "このページでは iruby notebook の ipynb ファイルから Word や PDF のファイルを (Quarto を用いることで) 生成する方法を説明します。\nこの変換は論文作成やレポート提出などに役立ちます。\n\n\nまず Quarto への入力を想定する ipynb にはその冒頭に、タイプを Raw に設定したセルを追加する必要があります(下記画像参照)。\n\n\n\nYAML front matter\n\n\n「Jupyter のセルのタイプを Raw に切り替える」のは、 下記画像のように「ノートブックタブ下のアイコン群の最も右にあるプルダウンメニュー」から行うことができます。\n\n\n\nSwitching cell type to Raw\n\n\nここでは日本語を含む ipynb を PDF として問題無く出力するための設定を「主に」記述しています。\nその「主に」以外のオプションとしては toc: true と number-sections: true をここでは含めています。\ntoc: true は Markdown の header のレベルに応じた目次を自動生成します。\nnumber-sections: true は section に自動で数字インデックスを付与します。 この他にも様々なオプションがあります。\npdf: 用のオプションであれば https://quarto.org/docs/output-formats/pdf-basics.html をご覧ください。\n\n\n\nまずは何はなくとも Ruby コードセルの作成とその実行結果を ipynb 中に作ってみましょう。\n\nputs \"Hello るびー！\"\n\nHello るびー！\n\n\n日本語を含む文字列のプリントを行う Ruby コードのセルが問題無く実行され、その出力がノートブック中に埋め込まれています。\n\n\n\nそれでは上記のようにコードセルとその実行結果を含む ipynb から PDF を出力してみましょう。\n実は JupyterLab には PDF への export 機能があるのですが、その機能では日本語は出力されない難があります。\nまた前述の YAML Front Matter 中のオプションのような詳細な設定は行えません。\nQuarto を用いるとそのような難は無く、ipynb から PDF を出力することが可能です。 その手順は下記になります。\n\nJupyterLab のメニューバー -&gt; File -&gt; New -&gt; Terminal と辿り、Terminal を立ち上げまず。\n次のコマンドを実行します。 quarto render ipynb2pdforword.ipynb\nJupyterLab の左のサイドバーの file browser をリフレッシュします。\nipynb2pdforword.pdf ができているはずです。それをダブルクリックしてみてください。\n\n\n\n\nここでは、Quarto が「クロスリファレンス(科学技術出版で必須となるもの)の作成を容易にしてくれること」の入門編として 数式を使ってみます。\n数式のレンダリングは Jupyter 中の Markdown セルで標準でサポートされています。\n下記を iruby notebook の Markdown セル中に書き実行してみましょう。\n## 数式セクション {#sec-equation}\n\n$$\ns = \\sqrt{\\frac{1}{N-1} \\sum_{i=1}^N (x_i - \\overline{x})^2}\n$$ {#eq-stddev}\n上記で行っていることは セクションへのラベリングと数式へのラベリングです。 {#sec-XXX} がセクションへのラベリングになります。XXXは任意の名前になります。\n同様に{#eq-YYY} は数式へのラベリングになります。\nこのようにセクションや数式にラベリングを行った上で、@sec-XXX のように @ の後にラベルをつけた文字列を Markdown セルに記述すると、 Quarto は ipynb から出力する PDF や Word ファイルにセクションや数式へのクロスリファレンスを自動生成してくれます。\n\n\n\n\\[\ns = \\sqrt{\\frac{1}{N-1} \\sum_{i=1}^N (x_i - \\overline{x})^2}\n\\tag{1}\\]\nSection 1.5 の Equation 1 を見てください。\n上記の文の PDF 出力はどうなっているでしょうか？\n「第何セクション」の「第何番目の数式」か、が自動的に参照付けされているはずです。\nこれが科学技術出版やレポート等で非常に重要となるクロスリファレンスと呼ばれるものになります。"
   },
   {
     "objectID": "ipynb2pdforword.html#yaml-front-matter",
     "href": "ipynb2pdforword.html#yaml-front-matter",
     "title": "ipynb から Word や PDF のファイルを生成する",
-    "section": "YAML Front Matter",
-    "text": "YAML Front Matter\nまず Quarto への入力を想定する ipynb にはその冒頭に、タイプを Raw に設定したセルを追加する必要があります(下記画像参照)。\n\n\n\nYAML front matter\n\n\nここでは日本語を含む ipynb を PDF として問題無く出力するための設定を「主に」記述しています。\nその「主に」以外のオプションとしては toc: true と number-sections: true をここでは含めています。\ntoc: true は Markdown の header のレベルに応じた目次を自動生成します。\nnumber-sections: true は section に自動で数字インデックスを付与します。 この他にも様々なオプションがあります。\npdf: 用のオプションであれば https://quarto.org/docs/output-formats/pdf-basics.html をご覧ください。"
+    "section": "",
+    "text": "まず Quarto への入力を想定する ipynb にはその冒頭に、タイプを Raw に設定したセルを追加する必要があります(下記画像参照)。\n\n\n\nYAML front matter\n\n\n「Jupyter のセルのタイプを Raw に切り替える」のは、 下記画像のように「ノートブックタブ下のアイコン群の最も右にあるプルダウンメニュー」から行うことができます。\n\n\n\nSwitching cell type to Raw\n\n\nここでは日本語を含む ipynb を PDF として問題無く出力するための設定を「主に」記述しています。\nその「主に」以外のオプションとしては toc: true と number-sections: true をここでは含めています。\ntoc: true は Markdown の header のレベルに応じた目次を自動生成します。\nnumber-sections: true は section に自動で数字インデックスを付与します。 この他にも様々なオプションがあります。\npdf: 用のオプションであれば https://quarto.org/docs/output-formats/pdf-basics.html をご覧ください。"
   },
   {
     "objectID": "ipynb2pdforword.html#ruby-コードセルとその出力",
     "href": "ipynb2pdforword.html#ruby-コードセルとその出力",
     "title": "ipynb から Word や PDF のファイルを生成する",
-    "section": "Ruby コードセルとその出力",
-    "text": "Ruby コードセルとその出力\nまずは何はなくとも Ruby コードセルの作成とその実行結果を ipynb 中に作ってみましょう。\n\nputs \"Hello るびー！\"\n\nHello るびー！\n\n\n日本語を含む文字列のプリントを行う Ruby コードのセルが問題無く実行され、その出力がノートブック中に埋め込まれています。"
+    "section": "",
+    "text": "まずは何はなくとも Ruby コードセルの作成とその実行結果を ipynb 中に作ってみましょう。\n\nputs \"Hello るびー！\"\n\nHello るびー！\n\n\n日本語を含む文字列のプリントを行う Ruby コードのセルが問題無く実行され、その出力がノートブック中に埋め込まれています。"
   },
   {
     "objectID": "ipynb2pdforword.html#ipynb-から-pdf-を出力する",
     "href": "ipynb2pdforword.html#ipynb-から-pdf-を出力する",
     "title": "ipynb から Word や PDF のファイルを生成する",
-    "section": "ipynb から PDF を出力する",
-    "text": "ipynb から PDF を出力する\nそれでは上記のようにコードセルとその実行結果を含む ipynb から PDF を出力してみましょう。\n実は JupyterLab には PDF への export 機能があるのですが、その機能では日本語は出力されない難があります。\nまた前述の YAML Front Matter 中のオプションのような詳細な設定は行えません。\nQuarto を用いるとそのような難は無く、ipynb から PDF を出力することが可能です。 その手順は下記になります。\n\nJupyterLab のメニューバー -&gt; File -&gt; New -&gt; Terminal と辿り、Terminal を立ち上げまず。\n次のコマンドを実行します。 quarto render ipynb2pdforword.ipynb\nJupyterLab の左のサイドバーの file browser をリフレッシュします。\nipynb2pdforword.pdf ができているはずです。それをダブルクリックしてみてください。"
+    "section": "",
+    "text": "それでは上記のようにコードセルとその実行結果を含む ipynb から PDF を出力してみましょう。\n実は JupyterLab には PDF への export 機能があるのですが、その機能では日本語は出力されない難があります。\nまた前述の YAML Front Matter 中のオプションのような詳細な設定は行えません。\nQuarto を用いるとそのような難は無く、ipynb から PDF を出力することが可能です。 その手順は下記になります。\n\nJupyterLab のメニューバー -&gt; File -&gt; New -&gt; Terminal と辿り、Terminal を立ち上げまず。\n次のコマンドを実行します。 quarto render ipynb2pdforword.ipynb\nJupyterLab の左のサイドバーの file browser をリフレッシュします。\nipynb2pdforword.pdf ができているはずです。それをダブルクリックしてみてください。"
   },
   {
     "objectID": "ipynb2pdforword.html#数式とその式へのクロスリファレンス",
     "href": "ipynb2pdforword.html#数式とその式へのクロスリファレンス",
     "title": "ipynb から Word や PDF のファイルを生成する",
-    "section": "数式とその式へのクロスリファレンス",
-    "text": "数式とその式へのクロスリファレンス\nここでは、Quarto が「クロスリファレンス(科学技術出版で必須となるもの)の作成を容易にしてくれること」の入門編として 数式を使ってみます。\n数式のレンダリングは Jupyter 中の Markdown セルで標準でサポートされています。\n下記を iruby notebook の Markdown セル中に書き実行してみましょう。\n## 数式セクション {#sec-equation}\n\n$$\ns = \\sqrt{\\frac{1}{N-1} \\sum_{i=1}^N (x_i - \\overline{x})^2}\n$$ {#eq-stddev}\n上記で行っていることは セクションへのラベリングと数式へのラベリングです。 {#sec-XXX} がセクションへのラベリングになります。XXXは任意の名前になります。\n同様に{#eq-YYY} は数式へのラベリングになります。\nこのようにセクションや数式にラベリングを行った上で、@sec-XXX のように @ の後にラベルをつけた文字列を Markdown セルに記述すると、 Quarto は ipynb から出力する PDF や Word ファイルにセクションや数式へのクロスリファレンスを自動生成してくれます。"
+    "section": "",
+    "text": "ここでは、Quarto が「クロスリファレンス(科学技術出版で必須となるもの)の作成を容易にしてくれること」の入門編として 数式を使ってみます。\n数式のレンダリングは Jupyter 中の Markdown セルで標準でサポートされています。\n下記を iruby notebook の Markdown セル中に書き実行してみましょう。\n## 数式セクション {#sec-equation}\n\n$$\ns = \\sqrt{\\frac{1}{N-1} \\sum_{i=1}^N (x_i - \\overline{x})^2}\n$$ {#eq-stddev}\n上記で行っていることは セクションへのラベリングと数式へのラベリングです。 {#sec-XXX} がセクションへのラベリングになります。XXXは任意の名前になります。\n同様に{#eq-YYY} は数式へのラベリングになります。\nこのようにセクションや数式にラベリングを行った上で、@sec-XXX のように @ の後にラベルをつけた文字列を Markdown セルに記述すると、 Quarto は ipynb から出力する PDF や Word ファイルにセクションや数式へのクロスリファレンスを自動生成してくれます。"
   },
   {
     "objectID": "ipynb2pdforword.html#sec-equation",
     "href": "ipynb2pdforword.html#sec-equation",
     "title": "ipynb から Word や PDF のファイルを生成する",
-    "section": "数式セクション",
-    "text": "数式セクション\n\\[\ns = \\sqrt{\\frac{1}{N-1} \\sum_{i=1}^N (x_i - \\overline{x})^2}\n\\tag{1}\\]\nSection 0.5 の Equation 1 を見てください。\n上記の文の PDF 出力はどうなっているでしょうか？\n「第何セクション」の「第何番目の数式」か、が自動的に参照付けされているはずです。\nこれが科学技術出版やレポート等で非常に重要となるクロスリファレンスと呼ばれるものになります。"
+    "section": "",
+    "text": "\\[\ns = \\sqrt{\\frac{1}{N-1} \\sum_{i=1}^N (x_i - \\overline{x})^2}\n\\tag{1}\\]\nSection 1.5 の Equation 1 を見てください。\n上記の文の PDF 出力はどうなっているでしょうか？\n「第何セクション」の「第何番目の数式」か、が自動的に参照付けされているはずです。\nこれが科学技術出版やレポート等で非常に重要となるクロスリファレンスと呼ばれるものになります。"
   }
 ]
