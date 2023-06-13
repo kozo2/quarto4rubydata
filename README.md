@@ -22,6 +22,7 @@ https://www.youtube.com/playlist?list=PLuFJcS7UhfnGrFUnCvK33jmhTLPUDfKsg
 
 ## 上記の試用を Docker を用いてご自身のローカル環境で行うには
 
+Docker Desktop をインストール・起動後、
 このリポジトリをクローンし、下記のコマンドを実行してください。
 
 ```
