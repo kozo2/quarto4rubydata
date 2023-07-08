@@ -28,9 +28,9 @@ docker run -it --rm -p 8888:8888 quarto4rubydata jupyter notebook --NotebookApp.
 上記のコマンドが実行できたら、ウェブブラウザで http://localhost:8888 を開いてください。
 すると下記画像のような JupyterLab 画面が見えるはずです。
 
-解説字幕CC を付けた YouTube のビデオもありますので、そちらも参考にしてください。
+解説字幕CC を付けた YouTube のビデオもありますので、ぜひ CC を有効にしてご覧ください。
 
-{{< video https://www.youtube.com/embed/wo9vZccmqwc >}}
+{{< video https://www.youtube.com/embed/S3dCfEPVPvk >}}
 
 ![iruby notebook を立ち上げる](lanucher_irubynotebook.png)
 
@@ -48,7 +48,7 @@ Quarto は、この JupyterLab 内のターミナルから `quarto` コマンド
 
 JupyterLab でターミナルを使うには下記画像の赤丸をクリックします。
 
-解説字幕CC を付けた YouTube のビデオもありますので、そちらも参考にしてください。
+解説字幕CC を付けた YouTube のビデオもありますので、ぜひ CC を有効にしてご覧ください。
 
 {{< video https://www.youtube.com/embed/wMJA-tI4z-4 >}}
 

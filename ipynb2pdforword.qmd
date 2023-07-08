@@ -6,7 +6,7 @@ title: ipynb から Word や PDF のファイルを生成する
 
 この変換は論文作成やレポート提出などに役立ちます。
 
-解説字幕CC を付けた YouTube のビデオもありますので、そちらも参考にしてください。
+解説字幕CC を付けた YouTube のビデオもありますので、ぜひ CC を有効にしてご覧ください。
 
 {{< video https://www.youtube.com/embed/wMf02-H9BRk >}}
 

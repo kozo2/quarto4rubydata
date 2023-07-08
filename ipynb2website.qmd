@@ -5,7 +5,7 @@ title: ipynb から ウェブサイトをビルドし、GitHub Pagesとして公
 ここでは ipynb をクロスリファレンスを備えた PDF や WORD に出力するだけではなく、
 ウェブサイトとして公開する方法を示します。
 
-解説字幕CC を付けた YouTube のビデオもありますので、そちらも参考にしてください。
+解説字幕CC を付けた YouTube のビデオもありますので、ぜひ CC を有効にしてご覧ください。
 
 {{< video https://www.youtube.com/embed/Sw26N5UggRQ >}}
 
