@@ -4,7 +4,7 @@
     "href": "ipynb2website.html",
     "title": "ipynb から ウェブサイトをビルドし、GitHub Pagesとして公開する",
     "section": "",
-    "text": "ここでは ipynb をクロスリファレンスを備えた PDF や WORD に出力するだけではなく、 ウェブサイトとして公開する方法を示します。\nまず PDF や WORD の場合と異なり、ipynb からウェブサイトをビルドすることはできません。 いったん ipynb を qmd という Markdown ファイルに置き換える必要があります。\nそれは下記の quarto コマンドにて行うことができます。\n上記で ipynb から qmd への変換ができました。"
+    "text": "ここでは ipynb をクロスリファレンスを備えた PDF や WORD に出力するだけではなく、 ウェブサイトとして公開する方法を示します。\n解説字幕CC を付けた YouTube のビデオもありますので、そちらも参考にしてください。\nまず PDF や WORD の場合と異なり、ipynb からウェブサイトをビルドすることはできません。 いったん ipynb を qmd という Markdown ファイルに置き換える必要があります。\nそれは下記の quarto コマンドにて行うことができます。\n上記で ipynb から qmd への変換ができました。"
   },
   {
     "objectID": "ipynb2website.html#qmd-の-yaml-front-matter-から-pdf-レンダリング用の設定を削除する",
@@ -32,7 +32,7 @@
     "href": "index.html#quarto-を使うには",
     "title": "RubyDataをQuartoと組み合わせて用いる方法と意義",
     "section": "Quarto を使うには",
-    "text": "Quarto を使うには\nQuarto は、この JupyterLab 内のターミナルから quarto コマンドを実行することで利用できます。\nJupyterLab でターミナルを使うには下記画像の赤丸をクリックします。\n\n\n\n\nターミナルを立ち上げる\n\n\nあとはターミナル内で quarto --help コマンドを実行し、quarto コマンドが利用できることを確認しましょう。\n\n\n\nimage.png"
+    "text": "Quarto を使うには\nQuarto は、この JupyterLab 内のターミナルから quarto コマンドを実行することで利用できます。\nJupyterLab でターミナルを使うには下記画像の赤丸をクリックします。\n解説字幕CC を付けた YouTube のビデオもありますので、そちらも参考にしてください。\n\n\n\n\nターミナルを立ち上げる\n\n\nあとはターミナル内で quarto --help コマンドを実行し、quarto コマンドが利用できることを確認しましょう。\n\n\n\nimage.png"
   },
   {
     "objectID": "crossref4figtbl.html",
@@ -67,7 +67,7 @@
     "href": "ipynb2pdforword.html",
     "title": "ipynb から Word や PDF のファイルを生成する",
     "section": "",
-    "text": "このページでは iruby notebook の ipynb ファイルから Word や PDF のファイルを (Quarto を用いることで) 生成する方法を説明します。\nこの変換は論文作成やレポート提出などに役立ちます。"
+    "text": "このページでは iruby notebook の ipynb ファイルから Word や PDF のファイルを (Quarto を用いることで) 生成する方法を説明します。\nこの変換は論文作成やレポート提出などに役立ちます。\n解説字幕CC を付けた YouTube のビデオもありますので、そちらも参考にしてください。"
   },
   {
     "objectID": "ipynb2pdforword.html#yaml-front-matter",
