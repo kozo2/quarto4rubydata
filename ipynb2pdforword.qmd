@@ -6,6 +6,13 @@ title: ipynb から Word や PDF のファイルを生成する
 
 この変換は論文作成やレポート提出などに役立ちます。
 
+解説字幕CC を付けた YouTube のビデオもありますので、そちらも参考にしてください。
+
+{{< video https://www.youtube.com/embed/wMf02-H9BRk >}}
+
+
+{{< video https://www.youtube.com/embed/hDDBjXBCzg0 >}}
+
 ## YAML Front Matter
 
 まず Quarto への入力を想定する ipynb にはその冒頭に、タイプを `Raw` に設定したセルを追加する必要があります(下記画像参照)。

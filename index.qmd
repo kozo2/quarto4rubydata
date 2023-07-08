@@ -28,9 +28,17 @@ docker run -it --rm -p 8888:8888 quarto4rubydata jupyter notebook --NotebookApp.
 上記のコマンドが実行できたら、ウェブブラウザで http://localhost:8888 を開いてください。
 すると下記画像のような JupyterLab 画面が見えるはずです。
 
+解説字幕CC を付けた YouTube のビデオもありますので、そちらも参考にしてください。
+
+{{< video https://www.youtube.com/embed/wo9vZccmqwc >}}
+
 ![iruby notebook を立ち上げる](lanucher_irubynotebook.png)
 
 あとは上記画像の中の赤丸の Ruby アイコンをクリックすると RubyData の gem がセットアップ済の iruby notebook が使えます。
+
+解説字幕CC を付けた YouTube のビデオもありますので、そちらも参考にしてください。
+
+{{< video https://www.youtube.com/embed/wN_1j2bpO90 >}}
 
 ![iruby notebook の見た目](irubynotebook.png)
 
@@ -39,6 +47,10 @@ docker run -it --rm -p 8888:8888 quarto4rubydata jupyter notebook --NotebookApp.
 Quarto は、この JupyterLab 内のターミナルから `quarto` コマンドを実行することで利用できます。
 
 JupyterLab でターミナルを使うには下記画像の赤丸をクリックします。
+
+解説字幕CC を付けた YouTube のビデオもありますので、そちらも参考にしてください。
+
+{{< video https://www.youtube.com/embed/wMJA-tI4z-4 >}}
 
 ![ターミナルを立ち上げる](lanucher_terminal.png)
 

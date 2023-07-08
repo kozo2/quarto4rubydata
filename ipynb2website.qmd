@@ -5,6 +5,10 @@ title: ipynb から ウェブサイトをビルドし、GitHub Pagesとして公
 ここでは ipynb をクロスリファレンスを備えた PDF や WORD に出力するだけではなく、
 ウェブサイトとして公開する方法を示します。
 
+解説字幕CC を付けた YouTube のビデオもありますので、そちらも参考にしてください。
+
+{{< video https://www.youtube.com/embed/Sw26N5UggRQ >}}
+
 まず PDF や WORD の場合と異なり、ipynb からウェブサイトをビルドすることはできません。
 いったん ipynb を qmd という Markdown ファイルに置き換える必要があります。
 
